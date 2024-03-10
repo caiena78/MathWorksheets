@@ -13,7 +13,7 @@ def generate_problems(start:int,end:int):
     return addition_problems
     
 
-def generate_addition_worksheet(pdf_file:str,addition_problems:list):
+def generate_subtraction_worksheet(pdf_file:str,addition_problems:list):
     # Initialize the canvas
     c = canvas.Canvas(pdf_file, pagesize=letter)    
     # Set up the font
@@ -25,7 +25,7 @@ def generate_addition_worksheet(pdf_file:str,addition_problems:list):
     for i, problem in enumerate(addition_problems):
         x = x_start + (col_count * 200)  # Adjust x-coordinate for each column
         y = y_start - ((row_count % 25) * 25)  # Adjust y-coordinate for each row
-        c.drawString(x, y, f"{problem[0]} + {problem[1]} = _____")        
+        c.drawString(x, y, f"{problem[0]} - {problem[1]} = _____")        
         # Move to the next row or start a new page after every 20 rows
         if (i + 1) % 75 == 0:
             c.showPage()
@@ -40,7 +40,7 @@ def generate_addition_worksheet(pdf_file:str,addition_problems:list):
     c.save()
 
 
-def generate_addition_answers(pdf_file:str,addition_problems:list):
+def generate_subtraction_answers(pdf_file:str,addition_problems:list):
     # Initialize the canvas
     c = canvas.Canvas(pdf_file, pagesize=letter)    
     # Set up the font
@@ -52,7 +52,7 @@ def generate_addition_answers(pdf_file:str,addition_problems:list):
     for i, problem in enumerate(addition_problems):
         x = x_start + (col_count * 200)  # Adjust x-coordinate for each column
         y = y_start - ((row_count % 25) * 25)  # Adjust y-coordinate for each row
-        c.drawString(x, y, f"{problem[0]} + {problem[1]} = {problem[0]+problem[1]}")        
+        c.drawString(x, y, f"{problem[0]} - {problem[1]} = {problem[0]-problem[1]}")        
         # Move to the next row or start a new page after every 20 rows
         if (i + 1) % 75 == 0:
             c.showPage()
@@ -68,8 +68,8 @@ def generate_addition_answers(pdf_file:str,addition_problems:list):
 
 
 
-problems=generate_addition_problems(1,13)
+problems=generate_problems(1,13)
 # Generate the PDF worksheet
-generate_addition_worksheet("addition_worksheet.pdf",problems)
-generate_addition_answers("addition_answers.pdf",problems)
+generate_subtraction_worksheet("subtraction_worksheet.pdf",problems)
+generate_subtraction_answers("subtraction_answers.pdf",problems)
 
