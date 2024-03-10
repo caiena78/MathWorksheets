@@ -2,7 +2,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import random
 
-def addition_problems(start:int,end:int):
+def generate_addition_problems(start:int,end:int):
     # Generate addition problems
     addition_problems = []
     for i in range(start, end):
