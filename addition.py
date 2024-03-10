@@ -68,7 +68,7 @@ def generate_addition_answers(pdf_file:str,addition_problems:list):
 
 
 
-problems=generate_addition_problems(1,13)
+problems=generate_problems(1,13)
 # Generate the PDF worksheet
 generate_addition_worksheet("addition_worksheet.pdf",problems)
 generate_addition_answers("addition_answers.pdf",problems)
